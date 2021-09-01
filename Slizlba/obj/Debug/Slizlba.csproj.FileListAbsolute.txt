@@ -1,0 +1,13 @@
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\bin\Debug\Slizlba.exe.config
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\bin\Debug\Slizlba.exe
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\bin\Debug\Slizlba.pdb
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\bin\Debug\EntityFramework.dll
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\bin\Debug\EntityFramework.xml
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.csprojAssemblyReference.cache
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.Form1.resources
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.Properties.Resources.resources
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.csproj.GenerateResource.cache
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.csproj.CoreCompileInputs.cache
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.csproj.CopyComplete
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.exe
+C:\Users\Dijana Lazic\Desktop\c#\Slizlba\Slizlba\obj\Debug\Slizlba.pdb

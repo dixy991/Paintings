@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SlilzozbeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Autor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="SlikaAutors" Relationship="Self.FK_SlikaAutor_Autor" FromRole="Autor" ToRole="SlikaAutor" />
+  </EntityType>
+  <EntityType Name="Izlozba">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <Property Name="MestoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Mesto" Relationship="Self.FK_Izlozba_Mesto" FromRole="Izlozba" ToRole="Mesto" />
+    <NavigationProperty Name="IzlozbaSlikas" Relationship="Self.FK_IzlozbaSlika_Izlozba" FromRole="Izlozba" ToRole="IzlozbaSlika" />
+  </EntityType>
+  <EntityType Name="IzlozbaSlika">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SlikaID" Type="Int32" Nullable="false" />
+    <Property Name="IzlozbaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Izlozba" Relationship="Self.FK_IzlozbaSlika_Izlozba" FromRole="IzlozbaSlika" ToRole="Izlozba" />
+    <NavigationProperty Name="Slika" Relationship="Self.FK_IzlozbaSlika_Slika" FromRole="IzlozbaSlika" ToRole="Slika" />
+  </EntityType>
+  <EntityType Name="Mesto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Izlozbas" Relationship="Self.FK_Izlozba_Mesto" FromRole="Mesto" ToRole="Izlozba" />
+  </EntityType>
+  <EntityType Name="Slika">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" />
+    <NavigationProperty Name="IzlozbaSlikas" Relationship="Self.FK_IzlozbaSlika_Slika" FromRole="Slika" ToRole="IzlozbaSlika" />
+    <NavigationProperty Name="SlikaAutors" Relationship="Self.FK_SlikaAutor_Slika" FromRole="Slika" ToRole="SlikaAutor" />
+    <NavigationProperty Name="SlikaTehnikas" Relationship="Self.FK_SlikaTehnika_SlikaTehnika" FromRole="Slika" ToRole="SlikaTehnika" />
+  </EntityType>
+  <EntityType Name="SlikaAutor">
+    <Key>
+      <PropertyRef Name="idSlikaAutor" />
+    </Key>
+    <Property Name="idSlikaAutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSlika" Type="Int32" Nullable="false" />
+    <Property Name="idAutor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Autor" Relationship="Self.FK_SlikaAutor_Autor" FromRole="SlikaAutor" ToRole="Autor" />
+    <NavigationProperty Name="Slika" Relationship="Self.FK_SlikaAutor_Slika" FromRole="SlikaAutor" ToRole="Slika" />
+  </EntityType>
+  <EntityType Name="SlikaTehnika">
+    <Key>
+      <PropertyRef Name="idSlikaTehnika" />
+    </Key>
+    <Property Name="idSlikaTehnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSlika" Type="Int32" Nullable="false" />
+    <Property Name="idTehnika" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Slika" Relationship="Self.FK_SlikaTehnika_SlikaTehnika" FromRole="SlikaTehnika" ToRole="Slika" />
+    <NavigationProperty Name="Tehnika" Relationship="Self.FK_SlikaTehnika_Tehnika" FromRole="SlikaTehnika" ToRole="Tehnika" />
+  </EntityType>
+  <EntityType Name="Tehnika">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="SlikaTehnikas" Relationship="Self.FK_SlikaTehnika_Tehnika" FromRole="Tehnika" ToRole="SlikaTehnika" />
+  </EntityType>
+  <Association Name="FK_SlikaAutor_Autor">
+    <End Role="Autor" Type="Self.Autor" Multiplicity="1" />
+    <End Role="SlikaAutor" Type="Self.SlikaAutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlikaAutor">
+        <PropertyRef Name="idAutor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Izlozba_Mesto">
+    <End Role="Mesto" Type="Self.Mesto" Multiplicity="1" />
+    <End Role="Izlozba" Type="Self.Izlozba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mesto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Izlozba">
+        <PropertyRef Name="MestoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IzlozbaSlika_Izlozba">
+    <End Role="Izlozba" Type="Self.Izlozba" Multiplicity="1" />
+    <End Role="IzlozbaSlika" Type="Self.IzlozbaSlika" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Izlozba">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IzlozbaSlika">
+        <PropertyRef Name="IzlozbaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IzlozbaSlika_Slika">
+    <End Role="Slika" Type="Self.Slika" Multiplicity="1" />
+    <End Role="IzlozbaSlika" Type="Self.IzlozbaSlika" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slika">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IzlozbaSlika">
+        <PropertyRef Name="SlikaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SlikaAutor_Slika">
+    <End Role="Slika" Type="Self.Slika" Multiplicity="1" />
+    <End Role="SlikaAutor" Type="Self.SlikaAutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slika">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlikaAutor">
+        <PropertyRef Name="idSlika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SlikaTehnika_SlikaTehnika">
+    <End Role="Slika" Type="Self.Slika" Multiplicity="1" />
+    <End Role="SlikaTehnika" Type="Self.SlikaTehnika" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slika">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlikaTehnika">
+        <PropertyRef Name="idSlika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SlikaTehnika_Tehnika">
+    <End Role="Tehnika" Type="Self.Tehnika" Multiplicity="1" />
+    <End Role="SlikaTehnika" Type="Self.SlikaTehnika" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tehnika">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlikaTehnika">
+        <PropertyRef Name="idTehnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SlilzozbeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Autors" EntityType="Self.Autor" />
+    <EntitySet Name="Izlozbas" EntityType="Self.Izlozba" />
+    <EntitySet Name="IzlozbaSlikas" EntityType="Self.IzlozbaSlika" />
+    <EntitySet Name="Mestoes" EntityType="Self.Mesto" />
+    <EntitySet Name="Slikas" EntityType="Self.Slika" />
+    <EntitySet Name="SlikaAutors" EntityType="Self.SlikaAutor" />
+    <EntitySet Name="SlikaTehnikas" EntityType="Self.SlikaTehnika" />
+    <EntitySet Name="Tehnikas" EntityType="Self.Tehnika" />
+    <AssociationSet Name="FK_SlikaAutor_Autor" Association="Self.FK_SlikaAutor_Autor">
+      <End Role="Autor" EntitySet="Autors" />
+      <End Role="SlikaAutor" EntitySet="SlikaAutors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Izlozba_Mesto" Association="Self.FK_Izlozba_Mesto">
+      <End Role="Mesto" EntitySet="Mestoes" />
+      <End Role="Izlozba" EntitySet="Izlozbas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IzlozbaSlika_Izlozba" Association="Self.FK_IzlozbaSlika_Izlozba">
+      <End Role="Izlozba" EntitySet="Izlozbas" />
+      <End Role="IzlozbaSlika" EntitySet="IzlozbaSlikas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IzlozbaSlika_Slika" Association="Self.FK_IzlozbaSlika_Slika">
+      <End Role="Slika" EntitySet="Slikas" />
+      <End Role="IzlozbaSlika" EntitySet="IzlozbaSlikas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SlikaAutor_Slika" Association="Self.FK_SlikaAutor_Slika">
+      <End Role="Slika" EntitySet="Slikas" />
+      <End Role="SlikaAutor" EntitySet="SlikaAutors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SlikaTehnika_SlikaTehnika" Association="Self.FK_SlikaTehnika_SlikaTehnika">
+      <End Role="Slika" EntitySet="Slikas" />
+      <End Role="SlikaTehnika" EntitySet="SlikaTehnikas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SlikaTehnika_Tehnika" Association="Self.FK_SlikaTehnika_Tehnika">
+      <End Role="Tehnika" EntitySet="Tehnikas" />
+      <End Role="SlikaTehnika" EntitySet="SlikaTehnikas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

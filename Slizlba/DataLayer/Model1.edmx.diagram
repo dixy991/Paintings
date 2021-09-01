@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08218cb729c542e2971b38117cff43ea" Name="Diagram1">
+        <EntityTypeShape EntityType="SlilzozbeModel.Autor" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.Izlozba" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.IzlozbaSlika" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.Mesto" Width="1.5" PointX="1.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.Slika" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.SlikaAutor" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.SlikaTehnika" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SlilzozbeModel.Tehnika" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="SlilzozbeModel.FK_SlikaAutor_Autor" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_Izlozba_Mesto" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_IzlozbaSlika_Izlozba" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_IzlozbaSlika_Slika" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_SlikaAutor_Slika" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_SlikaTehnika_SlikaTehnika" ManuallyRouted="false" />
+        <AssociationConnector Association="SlilzozbeModel.FK_SlikaTehnika_Tehnika" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

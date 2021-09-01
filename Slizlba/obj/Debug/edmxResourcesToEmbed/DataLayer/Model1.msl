@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SlilzozbeModelStoreContainer" CdmEntityContainer="SlilzozbeEntities">
+    <EntitySetMapping Name="Autors">
+      <EntityTypeMapping TypeName="SlilzozbeModel.Autor">
+        <MappingFragment StoreEntitySet="Autor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Izlozbas">
+      <EntityTypeMapping TypeName="SlilzozbeModel.Izlozba">
+        <MappingFragment StoreEntitySet="Izlozba">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="MestoId" ColumnName="MestoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IzlozbaSlikas">
+      <EntityTypeMapping TypeName="SlilzozbeModel.IzlozbaSlika">
+        <MappingFragment StoreEntitySet="IzlozbaSlika">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SlikaID" ColumnName="SlikaID" />
+          <ScalarProperty Name="IzlozbaID" ColumnName="IzlozbaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mestoes">
+      <EntityTypeMapping TypeName="SlilzozbeModel.Mesto">
+        <MappingFragment StoreEntitySet="Mesto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slikas">
+      <EntityTypeMapping TypeName="SlilzozbeModel.Slika">
+        <MappingFragment StoreEntitySet="Slika">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SlikaAutors">
+      <EntityTypeMapping TypeName="SlilzozbeModel.SlikaAutor">
+        <MappingFragment StoreEntitySet="SlikaAutor">
+          <ScalarProperty Name="idSlikaAutor" ColumnName="idSlikaAutor" />
+          <ScalarProperty Name="idSlika" ColumnName="idSlika" />
+          <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SlikaTehnikas">
+      <EntityTypeMapping TypeName="SlilzozbeModel.SlikaTehnika">
+        <MappingFragment StoreEntitySet="SlikaTehnika">
+          <ScalarProperty Name="idSlikaTehnika" ColumnName="idSlikaTehnika" />
+          <ScalarProperty Name="idSlika" ColumnName="idSlika" />
+          <ScalarProperty Name="idTehnika" ColumnName="idTehnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tehnikas">
+      <EntityTypeMapping TypeName="SlilzozbeModel.Tehnika">
+        <MappingFragment StoreEntitySet="Tehnika">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
